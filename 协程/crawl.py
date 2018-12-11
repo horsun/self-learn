@@ -40,11 +40,14 @@ class ProxyCrawl(object):
                 self.success.append(proxy)
 
     def save_ip(self):
+        # 协程主要代码  参考下面教程
+        # https://eastlakeside.gitbooks.io/interpy-zh/content/Coroutines/
         tset_iiip = self.test_ip()
         next(tset_iiip)
         for item in self.get_ip():
             tset_iiip.send(item)
         tset_iiip.close()
+        # 必须要close
         with open('ipipmuti.txt', 'a') as newfile:
             for proxies in self.success:
                 newfile.write(str(proxies))
@@ -66,7 +69,7 @@ if __name__ == '__main__':
     for page in range(1, 3):
         main(page)
     # 协程 233.32704663276672
-    # take 447.4212734699249 s
+    # 单线程 447.4212734699249 s
     # /---------------------------
     end = time.time()
     used = end - start

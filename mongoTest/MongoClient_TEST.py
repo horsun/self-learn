@@ -15,6 +15,7 @@ class MongoClient(object):
         return self.client[db_name]
 
     def create_collection(self, db_name, coll_name):
+        # 没有这个coll_name 就创建一个
         if coll_name not in self.get_collection_list(db_name):
             self.client[db_name].create_collection(coll_name)
         return self.client[db_name][coll_name]
@@ -36,5 +37,5 @@ if __name__ == '__main__':
             collection_list.append(x)
     coll = client.create_collection(db_name='monitor', coll_name='system_info')
     from pprint import pprint
-
+    print(list(MongoClient().create_collection(db_name='monitor', coll_name='system_info').find()))
     pprint(list(coll.find()))
