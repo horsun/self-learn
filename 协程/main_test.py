@@ -1,9 +1,28 @@
 def grep(pattern):
+    """
+
+    :param pattern:
+    :return:
+    """
     print("Searching for", pattern)
     while True:
         line = (yield)
         if pattern in line:
             print(line)
+
+
+def xrange(n):
+    """
+    生成器
+    :param n:
+    :return:
+    """
+    while True:
+        if n > 0:
+            n -= 1
+            yield n
+        else:
+            break
 
 
 if __name__ == '__main__':

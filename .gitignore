@@ -112,3 +112,4 @@ venv.bak/
 /wxPython_Test/debug.txt
 将删除 wxPython_Test/debug.txt
 ipipmuti.txt
+/graphTest/.idea/
