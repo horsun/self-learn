@@ -37,8 +37,9 @@ def delete():
 
 # 插入数据
 def insert():
-    result = es.index(index='personinfo', doc_type='politics', body=createRandomPerson())
-    print(result)
+    for i in range(5000):
+        result = es.index(index='personinfo', doc_type='politics', body=createRandomPerson())
+        print(result)
 
 
 def search():
@@ -47,4 +48,19 @@ def search():
     pprint(result)
 
 
-search()
+def querySearch():
+    # query的格式要求
+    # https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html
+
+    query_all = {'query': {'match_all': {}}}  # 查找所有文档
+
+    query_name = {'query': {'match': {'name': '赵而'}}}  # 查找名字叫做jack的所有文档
+
+    query_gt = {'query': {'range': {'age': {'gt': 20}}}}  # 查找年龄大于11的所有文档
+
+    result = es.search(index='personinfo', doc_type='politics', body=query_name, ignore=404)
+
+    pprint(result)
+
+
+querySearch()
