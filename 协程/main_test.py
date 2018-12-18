@@ -17,10 +17,12 @@ def xrange(n):
     :param n:
     :return:
     """
+    x = 0
     while True:
         if n > 0:
+            yield x
             n -= 1
-            yield n
+            x += 1
         else:
             break
 
@@ -31,3 +33,4 @@ if __name__ == '__main__':
     search.send('here is a peach')
     search.send('here is a melon')
     search.send('here is a apple')
+    print(list(xrange(1)))
