@@ -1,6 +1,6 @@
-import pymemcache
-from pymemcache.client.base import Client
 import json
+
+from pymemcache.client.base import Client
 
 
 def enJson(key, value):
@@ -14,7 +14,6 @@ def deJson(key, value, flags):
         return value
     if flags == 2:
         return json.loads(value)
-        # raiseException("Unknown serialization format")
 
 
 client = Client(('127.0.0.1', 11211), serializer=enJson, deserializer=deJson)
