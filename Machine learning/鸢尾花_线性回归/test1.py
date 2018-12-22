@@ -16,7 +16,7 @@ def init_type(name):
 
 
 # converters用于将分类转为数字 调用上面的方法 {<index>:<function>}
-# delimiter 用于切割
+# delimiter 用于切割soua
 data = np.loadtxt('http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data',
                   delimiter=',',
                   converters={4: init_type},
