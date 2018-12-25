@@ -13,14 +13,14 @@ y1 = np.sin(4 * x)
 y2 = np.sin(4 * x) + x
 y = np.sin(4 * x) + x + rng.uniform(size=len(x))
 
-plt.plot(x, y1, 'o')
+plt.plot(x, y1, 'x')
 plt.title('normal sin()')
 plt.show()
 
-plt.plot(x, y2, 'o')
+plt.plot(x, y2, 'x')
 plt.title('sin() + x ')
 plt.show()
 
-plt.plot(x, y, 'o')
+plt.plot(x, y, 'x')
 plt.title('sin()+ x + random num')
 plt.show()
