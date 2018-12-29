@@ -108,7 +108,7 @@ venv.bak/
 将删除 .gitignore
 将删除 .idea/
 /.idea/
-/tensorflow_study/MNIST_data/
+/Machine learning/tensorflow_study/MNIST_data/
 /wxPython_Test/debug.txt
 将删除 wxPython_Test/debug.txt
 ipipmuti.txt

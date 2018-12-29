@@ -1,3 +1,16 @@
+import time
+
+
+def timeFilter(func):
+    def swage(*args, **kwargs):
+        t1 = time.time()
+        func(*args, **kwargs)
+        print(f"it's takes {time.time() - t1} seconds")
+
+    return swage
+
+
+# @timeFilter
 def quickSort(arr):
     less = []  # 比 基准小的
     pivotList = []  # 相等的list
